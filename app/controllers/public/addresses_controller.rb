@@ -14,6 +14,26 @@ class Public::AddressesController < ApplicationController
       render :index
     end
   end
+  def edit
+    @address = Address.find(params[:id])
+  end
+  
+  def update
+    @address = Address.find(params[:id])
+    if @address.end_user = current_end_user
+      @address.update(address_params)
+      flash[:notice] = "配送先を編集しました。"
+      redirect_to addresses_path
+    else
+      render root_path
+    end
+  end
+  
+  def destroy
+    @address = Address.find(params[:id])
+    @address.destroy
+    redirect_to addresses_path
+  end
   
   private
   def address_params

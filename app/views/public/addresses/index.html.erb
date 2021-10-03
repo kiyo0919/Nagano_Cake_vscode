@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="row mt-5">
-    <div class="col-md-7">
+    <div class="col-md-10">
       <table class="table">
         <thead>
           <tr>
@@ -31,14 +31,22 @@
             <th>住所</th>
             <th>宛名</th>
             <th></th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
-        <% @addresses.each do |address| %> 
+        <% @addresses.each do |address| %>
         <tbody>
           <tr>
             <td><%= address.postal_code %></td>
             <td><%= address.address %></td>
             <td><%= address.name %></td>
+            <td>
+              <%= link_to "編集する",  edit_address_path(address), class: "btn btn-success" %>
+            </td>
+            <td>
+              <%= link_to "削除する",  address_path(address), method: :delete, 'data-confirm' => '本当に削除しますか？', class: "btn btn-danger" %>
+            </td>
           </tr>
         </tbody>
          <% end %>
