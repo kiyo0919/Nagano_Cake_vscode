@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="user-order-title">
+      <h3>注文情報入力</h3>
+    </div>
+  </div>
+  <div class="row">
+    <%= form_with model: @order, url: confirm_path, method: :post, local:true do |f| %>
+      <div class="row">
+        <h4><strong>支払方法</strong></h4>
+    	 	<div class="radio-button col-md-12">
+  		    <%= f.radio_button :payment_method, :bank_transfer, checked: true %>
+  		    <%= f.label :payment_method_bank_transfer,"銀行振込" %>
+    		</div>
+    		<div class="radio-button col-md-12">
+  		    <%= f.radio_button :payment_method, :credit_card %>
+  		    <%= f.label :payment_method_credit_card,"クレジットカード" %>
+    		</div>
+    	</div>
+    	<div class="row">
+    	   <h4><strong>お届け先</strong></h4>
+    	  <div class="radio-button col-md-12">
+    	    <%= f.radio_button :address_option, 0, checked: true %> <strong>ご自身の住所</strong>
+    	    <div class="col-md-12">
+    	      〒<%= @user.postal_code %> <%= @user.address %>
+    	    </div>
+    	    <div class="col-md-12">
+    	      <%= @user.last_name %><%= @user.first_name %>
+    	    </div>
+    	  </div>
+    	  <div class="radio_button col-md-12">
+    	    <%= f.radio_button :address_option, 1 %> <strong>登録済み住所からの選択</strong>
+    	  </div>
+    	  <div class="col-md-12">
+    	    <%= collection_select(:select_delivery,  :id, current_end_user.addresses, :id, :address_property, prompt: "選択してください")  %>
+    	  </div>
+        <div class="radio-button col-md-12 mt-15px">
+  		    <%= f.radio_button :address_option, 2 %> <strong>新しいお届け先</strong>
+		      <div class="form-group row">
+  		    	<p class='col-md-3'>郵便番号(ハイフンなし)</p>
+  		    	<%= f.text_field :postal_code, class: 'col-md-4' %>
+		      </div>
+		      <div class="form-group row">
+  		    	<p class='col-md-3'>住所</p>
+  		    	<%= f.text_field :address,class: 'col-md-5' %>
+  		    </div>
+  		    <div class="form-group row">
+  		    	<p class='col-md-3'>宛名</p>
+  		    	<%= f.text_field :name %>
+		      </div>
+		    </div>
+      </div>
+      <div class="row display-content-center mt-5">
+        <div class="col-md-3 offset-md-3">
+	        <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+	      </div>
+	    </div>
+    </div>
+    <% end %>
+  </div>
+</div>

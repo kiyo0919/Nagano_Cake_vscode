@@ -1,0 +1,99 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+ 
+ .notice {
+   color: green;
+ }
+
+.back-gray {
+  background-color: #EEEEEE;
+}
+
+header {
+  border-bottom: solid 2px black;
+  height: 140px;
+}
+
+.navbar-brand {
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 10px;
+  color: black;
+  width: 200px;
+}
+
+.nav-brand {
+  text-align: center
+}
+
+.search-box {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.login h3 {
+  margin: 20px;
+  text-align: center;
+}
+
+.login p {
+  text-align: center;
+}
+
+.login-under {
+  margin: 20px;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+// マイページ
+.my-page-title h3 {
+  display: inline-block;
+  background-color: #EEEEEE;
+}
+.my-page strong {
+  margin-right: 10px;
+}
+
+// 会員情報編集ページ
+.edit-user-title h3, .admin-user-index h3, .admin-item-index h3, .admin-genres-index h3, .admin-item-new h3, .user-cart h3, .user-order-title h3, .user-address h3
+, .user-order-confirm h3, .admin-order-index h3, .admin-order-show h3 {
+  display: inline-block;
+  background-color: #EEEEEE;
+}
+
+// 商品詳細ページ
+.item-show p {
+  font-size: 20px;
+  margin: 10px 0 30px;
+}
+
+// 商品一覧ページ
+.genre-table td {
+  border: none;
+}

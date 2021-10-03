@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-4 offset-md-2">
+      <%=  attachment_image_tag @item, :image, size: "300x200" %>
+    </div>
+    <div class="col-md-5">
+      <div class="item-show">
+        <h4><strong><%= @item.name %></strong></h4>
+        <p><%= @item.description%></p>
+         <p><strong>￥<%= @item.add_tax_price.to_s(:delimited) %></strong> (税込)</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 offset-md-6">
+      <%= form_with model: @cart_item, local:true do |f| %>
+      <div class="form row">
+        <div class="col-md-2">
+          <%= f.select :amount, options_for_select(1..10), include_blank: "個数選択" %>
+          <% if end_user_signed_in? %>
+            <%= f.hidden_field :end_user_id, :value => current_end_user.id %>
+            <%= f.hidden_field :item_id, :value => @item.id %>
+          <% end %>
+        </div>
+        <div class="col-md-4 offset-md-2">
+          <%= f.submit "カートに入れる", class: "btn btn-success" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="admin-genres-index">
+        <h3>ジャンル編集</h3>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-10">
+      <%= form_with model: @genre, url: admin_genre_path, local: true do |f| %>
+        <div class="form-group row">
+          <%= f.label :name, "ジャンル名", class: "col-md-3 col-form-label" %>
+          <div class="col-md-4">
+            <%= f.text_field :name, autofocus: true, placeholder: "ジャンル名", class: "form-control" %>
+          </div>
+          <div class="col-md-2">
+            <%= f.submit "変更を保存", class: "btn btn-success" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

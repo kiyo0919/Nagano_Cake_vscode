@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="admin-user-index">
+      <h3>会員一覧</h3>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>
+                <%= user.id %>
+              </td>
+              <td>
+                <%= user.last_name %><%= user.first_name %>
+              </td>
+              <td>
+                <%= user.email %>
+              </td>
+              <td>
+                <% if user.is_valid %>
+                  <span style="color: #808080;">退会済</span>
+                <% else %>
+                  <span style="color: green;">有効</span>
+                <% end%>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
