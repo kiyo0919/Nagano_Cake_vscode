@@ -32,8 +32,10 @@
     	    <%= f.radio_button :address_option, 1 %> <strong>登録済み住所からの選択</strong>
     	  </div>
     	  <div class="col-md-12">
-    	    <%= collection_select(:select_delivery,  :id, current_end_user.addresses, :id, :address_property, prompt: "選択してください")  %>
-    	  </div>
+    	    <%= collection_select(:address, :id, current_end_user.addresses, :id, :address_property, prompt: "選択してください")  %>
+    	  </div> <%# 第１引数 :address ＝オブジェクト名（パラメータに入り送る値）　第２引数 :id ＝プロパティ(メソッド)名（パラメータに入り、送る値）https://crieit.net/posts/Rails-collection-select(参考url)
+								第３引数 current_end_user.addresses ＝オブジェクトの配列 第４引数 :id ＝value属性の項目(配送先住所のid情報を付与するイメージ、これが第2引数のidの値となる)
+								第５引数 :address_property ＝テキストの項目 adress.rbで定義済 第６引数 {:include_blank => } ＝オプション 、（例配送先id=2の場合、ターミナルでは"address"=>{"id"=>"2"}と値が入る%>
         <div class="radio-button col-md-12 mt-15px">
   		    <%= f.radio_button :address_option, 2 %> <strong>新しいお届け先</strong>
 		      <div class="form-group row">

@@ -44,6 +44,9 @@
     <div class="col-md-4">
       <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch, local: true do |f| %>
   			<%= f.select :order_status, Order.order_statuses.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]} %>
+        <%# keysメソッドでハッシュオブジェクトからキーのみ配列の形で取り出している(waiting_payment,payment_confirmation,in_production,preparing_for_shipping,sent）
+        I18nのtranslateメソッド（I18n.t）でenumのキーの内容を翻訳している
+        keysメソッドで取り出した値一つ一つに対しmapメソッドで処理し、二次元配列（配列の中に、配列が格納された形の配列のこと）を戻り値として返す %>
   			<%= f.submit "更新",class: 'btn btn-success ml-2' %>
 		  <% end %>
     </div>
@@ -70,6 +73,9 @@
             <td>
               <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
           			<%= f.select :production_status, OrderDetail.production_statuses.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]} %>
+                <%# keysメソッドでハッシュオブジェクトからキーのみ配列の形で取り出している(not_startable,waiting_production,now_production,finish_production）
+                I18nのtranslateメソッド（I18n.t）でenumのキーの内容を翻訳している
+                keysメソッドで取り出した値一つ一つに対しmapメソッドで処理し、二次元配列（配列の中に、配列が格納された形の配列のこと）を戻り値として返す %>
           			<%= f.submit "更新",class: 'btn btn-success ml-2' %>
         		  <% end %>
             </td>

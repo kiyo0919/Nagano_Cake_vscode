@@ -26,7 +26,7 @@ class Public::CustomersController < ApplicationController
   def out
     @user = current_end_user
     @user.update(is_valid: true)
-    reset_session
+    reset_session #セッション情報を削除する
     redirect_to root_path
   end
   
