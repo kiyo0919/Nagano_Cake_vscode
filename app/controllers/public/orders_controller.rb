@@ -18,7 +18,7 @@ class Public::OrdersController < ApplicationController
         @order.address = current_end_user.address
         @order.name = current_end_user.last_name + current_end_user.first_name
       elsif params[:order][:address_option] == "1"
-        address = Address.find(params[:address][:id])
+        address = Address.find(params[:address][:id]) # <%= f.select :address_id, options_from_collection_for_select( current_end_user.addresses, :id, :address_property)%>の場合、prams[:order][:address_id]となる
         @order.postal_code = address.postal_code
         @order.address = address.address
         @order.name = address.name

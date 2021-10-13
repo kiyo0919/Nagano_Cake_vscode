@@ -18,8 +18,8 @@
         <div class="col-md-2">
           <%= f.select :amount, options_for_select(1..10), include_blank: "個数選択" %>
           <% if end_user_signed_in? %>
-            <%= f.hidden_field :end_user_id, :value => current_end_user.id %>
-            <%= f.hidden_field :item_id, :value => @item.id %>
+            <%= f.hidden_field :end_user_id, value: current_end_user.id %>
+            <%= f.hidden_field :item_id, value: @item.id %>
           <% end %>
         </div>
         <div class="col-md-4 offset-md-2">
