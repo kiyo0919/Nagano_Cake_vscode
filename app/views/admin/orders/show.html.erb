@@ -47,6 +47,11 @@
         <%# keysメソッドでハッシュオブジェクトからキーのみ配列の形で取り出している(waiting_payment,payment_confirmation,in_production,preparing_for_shipping,sent）
         I18nのtranslateメソッド（I18n.t）でenumのキーの内容を翻訳している
         keysメソッドで取り出した値一つ一つに対しmapメソッドで処理し、二次元配列（配列の中に、配列が格納された形の配列のこと）を戻り値として返す %>
+        <%# 処理の内容は、
+        I18n.t ... enumの内容を翻訳するメソッド
+        を使って、["翻訳した内容":"value"]の配列を作る処理です。
+        enums.order.order_status のように、
+        ja.ymlに書いたenumの翻訳情報の位置をきちんと記します。 %>
   			<%= f.submit "更新",class: 'btn btn-success ml-2' %>
 		  <% end %>
     </div>
