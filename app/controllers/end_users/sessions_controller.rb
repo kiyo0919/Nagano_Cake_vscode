@@ -7,6 +7,10 @@ class EndUsers::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     customers_path
   end
+
+  def after_sign_out_path_for(resource)
+    new_end_user_session_path
+  end
   
   # 退会済みユーザーのログイン拒否
   def reject_inactive_user
