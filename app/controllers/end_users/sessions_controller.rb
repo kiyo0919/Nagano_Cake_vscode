@@ -3,7 +3,7 @@
 class EndUsers::SessionsController < Devise::SessionsController
   before_action :reject_inactive_user, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
-  
+
   def after_sign_in_path_for(resource)
     customers_path
   end
@@ -11,7 +11,7 @@ class EndUsers::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(resource)
     new_end_user_session_path
   end
-  
+
   # 退会済みユーザーのログイン拒否
   def reject_inactive_user
     @user = EndUser.find_by(email: params[:end_user][:email].downcase)
