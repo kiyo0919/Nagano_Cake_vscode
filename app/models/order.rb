@@ -14,4 +14,5 @@ class Order < ApplicationRecord
 		preparing_for_shipping: 3,
 		sent: 4
 		}
+
 end

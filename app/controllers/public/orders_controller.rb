@@ -68,9 +68,14 @@ class Public::OrdersController < ApplicationController
   end
   
   def index
+    @orders = current_end_user.orders
   end
   
   def show
+    @order = Order.find(params[:id])
+    if @order.end_user != current_end_user
+      redirect_to root_path
+    end
   end
   
   private
