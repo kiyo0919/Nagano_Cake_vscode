@@ -11,13 +11,13 @@
   	    	<%= f.label :postal_code,"郵便番号(ハイフンなし)",class: 'col-md-3' %>
   	    	<%= f.text_field :postal_code, class: 'col-md-4' %>
         </div>
-        <div class="field mt-15px col-md-12">
+        <div class="field col-md-12">
   	    	<%= f.label :address,"住所",class: 'col-md-3' %>
   	    	<%= f.text_field :address,class: 'col-md-5 ' %>
   	    </div>
-  	    <div class="field mt-15px col-md-12">
+  	    <div class="field col-md-12">
   	    	<%= f.label :name,"宛名",class: 'col-md-3' %>
-  	    	<%= f.text_field :name %>  <%= f.submit "変更内容を保存", class: "btn btn-success btn-block ml-5" %>
+  	    	<%= f.text_field :name %> <%= f.submit "変更内容を保存", class: "btn btn-success col-md-2 offset-md-3" %>
         </div>
       <% end %>
     </div>

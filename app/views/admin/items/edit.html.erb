@@ -1,2 +1,45 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-2">
+      <h3 style="background-color:#EEEEEE;">商品編集</h3>
+    </div>
+  </div>
+
+    <%= form_with model: @item, url: admin_item_path(@item), local:true do |f| %>
+      <table class="table table-borderless ml-5">
+        <tr>
+          <td width="70px">商品画像</td>
+          <td width="100px"><%= f.attachment_field :image, size: "100x120", fallback: "noimage.png" %></td>
+        </tr>
+        <tr>
+          <td>商品名</td>
+          <td><%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <td>商品説明</td>
+          <td><%= f.text_area :description %></td>
+        </tr>
+        <tr>
+          <td>ジャンル</td>
+          <td><%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank:'選択してください'} %></td>
+        </tr>
+        <tr>
+          <td>税抜価格</td>
+          <td><%= f.text_field :price_without_tax %></td>
+        </tr>
+        <tr>
+          <td>販売ステータス</td>
+          <td>
+            <%= f.radio_button :is_sale, :true %>
+            <%= f.label :item, "販売中", {value: :true, style: "display: inline-block;"} %>
+            <%= f.radio_button :is_deleted, :false %>
+            <%= f.label :item, "販売停止中", {value: :false, style: "display: inline-block;"} %>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "変更を保存", class:'btn btn-success' %></td>
+        </tr>
+      </table>
+    <% end %>
+</div>
