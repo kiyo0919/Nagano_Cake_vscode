@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="edit-user-title">
+      <h3><%= @user.last_name + @user.first_name %>さんの会員情報編集</h3>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-10">
+      <%= form_with model: @user, url: admin_customer_path(@user), local:true do |f| %>
+        <div class="form row">
+          <%= f.label "氏名", class: "col-md-2 col-form-label" %>
+          <div class="form-row col-md-4">
+            <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="form-row col-md-4">
+            <%= f.text_field :first_name, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form row mt-3">
+          <%= f.label "フリガナ", class: "col-md-2 col-form-label" %>
+          <div class="form-row col-md-4">
+            <%= f.text_field :last_name_kana, class: "form-control" %>
+          </div>
+          <div class="form-row col-md-4">
+            <%= f.text_field :first_name_kana, class: "form-control" %>
+        </div>
+        </div>
+        <div class="form row mt-3">
+          <%= f.label "郵便番号", class: "col-md-2 col-form-label" %>
+          <div class="form-row col-md-4">
+            <%= f.text_field :postal_code, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form row mt-3">
+          <%= f.label "住所", class: "col-md-2 col-form-label" %>
+          <div class="form-row col-md-10">
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form row mt-3">
+          <%= f.label "電話番号", class: "col-md-2 col-form-label" %>
+          <div class="form-row col-md-4">
+            <%= f.text_field :phone_number, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form row mt-3">
+          <%= f.label "メールアドレス", class: "col-md-2 col-form-label" %>
+          <div class="form-row col-md-4">
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form row mt-3">
+          <%= f.label "会員ステータス", class: "col-md-2 col-form-label" %>
+          <div class="col-md-4">
+            <%= f.radio_button :is_valid, false %>
+            <%= f.label :is_valid, '有効', value: false %>
+            <%= f.radio_button :is_valid, true %>
+            <%= f.label :is_valid, '退会', value: true %>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-4 offset-md-2">
+            <%= f.submit "変更を保存", class: "btn btn-success btn-block" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
