@@ -9,7 +9,7 @@ class Public::ItemsController < ApplicationController
         redirect_to items_path
       end
     else
-      @items = Item.all
+      @items = Item.all#.page(params[:page]).per(2) kaminariはこれ
     end
   end
 
