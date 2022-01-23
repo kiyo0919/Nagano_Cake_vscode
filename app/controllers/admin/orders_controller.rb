@@ -7,6 +7,7 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+    @order_details = @order.order_details
     if @order.update(order_params)
       if params[:order][:order_status] == "payment_confirmation"
     	  @order.order_details.each do |order_detail|
@@ -14,8 +15,8 @@ class Admin::OrdersController < ApplicationController
     	   		order_detail.save
     	  end
       end
-      flash[:notice] = "注文ステータスを更新しました。"
-      redirect_to admin_order_path(@order)
+      # flash[:notice] = "注文ステータスを更新しました。"
+      # redirect_to admin_order_path(@order)
     else
       render :show
     end
