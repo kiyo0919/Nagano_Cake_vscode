@@ -57,7 +57,7 @@ class Public::OrdersController < ApplicationController
       order_detail = order.order_details.new
       order_detail.item_id = cart_item.item_id
       order_detail.amount = cart_item.amount
-      order_detail.price = cart_item.item.price_without_tax * 1.10
+      order_detail.price = (cart_item.item.price_without_tax * 1.10).floor
       order_detail.save
     end
     current_end_user.cart_items.destroy_all

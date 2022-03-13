@@ -69,7 +69,7 @@
             </ul>
           <% end %>
         </nav>
-        <div class="search-box">　
+        <div class="search-box">
           <% if admin_signed_in? %>
             <%= form_with url: admin_items_path, method: :get, local: true do |f| %>
               <%= f.text_field :name, placeholder: "商品名を入力" %>
