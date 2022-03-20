@@ -97,3 +97,11 @@ h3 {
 .genre-table td {
   border: none;
 }
+
+// 購入感謝ページ
+.thanks {
+  height: 80vh;
+  display: flex; //教材>html,cssを学ぼう>flexレイアウトを学ぼう
+  justify-content: center;
+  align-items: center;
+}
