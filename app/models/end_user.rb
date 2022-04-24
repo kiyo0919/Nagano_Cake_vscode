@@ -3,7 +3,11 @@ class EndUser < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
+  # def active_for_authentication? active_for_authentication?はdeviseにデフォルトであるクラスメソッドでboolean型を返す。
+  #   super && (is_valid == false)  このメソッドがfalseになるとログインできなくなる。この記述だけしてれば、sessions_controllerに用意している退会用メソッド
+  # end                              のbefore_actionはいらない。けれどredirect先が設定されているbefore_actionの方がいいかも
+
   has_many :cart_items, dependent: :destroy
   has_many :orders
   has_many :addresses
