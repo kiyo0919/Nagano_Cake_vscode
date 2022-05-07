@@ -3,13 +3,13 @@ class Public::ItemsController < ApplicationController
     @genres = Genre.all
     if params[:genre_id].present?
       genre = Genre.find(params[:genre_id])
-      @items = genre.items
+      @items = genre.items.page(params[:page]).per(5)
       unless @items.present?
         flash[:notice] = "#{genre.name}の商品はございません。"
         redirect_to items_path
       end
     else
-      @items = Item.all#.page(params[:page]).per(2) kaminariはこれ
+      @items = Item.page(params[:page]).per(5) #kaminariはこれ
     end
   end
 
