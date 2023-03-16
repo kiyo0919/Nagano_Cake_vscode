@@ -5,6 +5,6 @@ class Item < ApplicationRecord
   has_many :order_details, dependent: :destroy
   
   def add_tax_price
-      (self.price_without_tax * 1.1).floor
+      (price_without_tax * 1.1).floor
   end
 end

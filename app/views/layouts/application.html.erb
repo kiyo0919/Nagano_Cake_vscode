@@ -82,6 +82,11 @@
      <% flash.each do |key, value| %>
       <%=  content_tag(:p, value, class: key) %>
       <% end %>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      Copyright © Infratop Inc. All Rights Reserved.
+    </footer>
   </body>
 </html>

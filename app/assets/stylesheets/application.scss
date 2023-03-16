@@ -22,6 +22,17 @@
   padding: 0;
   box-sizing: border-box;
  }
+
+ main {
+  min-height: calc(100vh - 100px)
+}
+                                            // footer固定css
+footer{
+  width: 100%;
+  height: 50px;
+  background-color: antiquewhite;
+  text-align: center;
+}
  
  .notice {
    color: green;
@@ -104,4 +115,22 @@ h3 {
   display: flex; //教材>html,cssを学ぼう>flexレイアウトを学ぼう
   justify-content: center;
   align-items: center;
+}
+
+
+.mv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 400px;
+  margin: 50px auto 20px;
+  background: no-repeat image-url("top-mv.jpg") center/cover;
+  p {
+    width: 500px;
+    padding: 50px;
+    font-size: 16px;
+    text-align: center;
+    background-color: rgba(255,255,255,0.8);
+  }
 }

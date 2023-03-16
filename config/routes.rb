@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   end
   scope module: :public do
     root to: 'homes#top'
+    get  "orders/confirm" => redirect("orders/new") #注文確認画面(orders/confirm)にてリロードした時の対策
     get 'customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     patch 'customers/withdrawal' => 'customers#out', as: 'out_withdrawal'
     resource :customers, only: [:show, :edit, :update]
